@@ -1,0 +1,62 @@
+---
+output: rmarkdown::github_document
+---
+
+`tlsobs` : Tools to Work with the 'Mozilla' 'TLS' Observatory 'API'
+
+The Mozilla [TLS Observatory](https://observatory.mozilla.org/analyze.html) can be used to compare your site against the Mozilla guidelines. You can use their service or [host your own](https://github.com/mozilla/tls-observatory#getting-started). Both the central service and locally hosted services have an API. Either the central service or a local service can be queried from the functions provided.
+
+The following functions are implemented:
+
+- `get_cert`:	Retrieve a certificate
+- `get_issuer_count`:	Retrieve certificate issuer count
+- `get_paths`:	Retrieve paths from a certificate to one of multiple roots.
+- `get_scan_results`:	Retrieve a certificate
+- `get_usage_stats`:	Retrive 24 hour scan statistics from the TLS Obsercatory API
+- `get_heartbeat`:	Check for TLS Obsercatory API server online status
+
+### TODO
+
+- Starting a scan (<https://github.com/mozilla/tls-observatory#post-apiv1scan>)
+- Publishing a certificate (<https://github.com/mozilla/tls-observatory#post-apiv1certificate>)
+- Retrieving a trust store (<https://github.com/mozilla/tls-observatory#get-apiv1truststore>)
+- firing up a local Docker version and testing against it.
+
+Feel free to implement any of ^^. Please file an issue if you do and ensure you update `DESCRIPTION`
+
+### Installation
+
+```{r eval=FALSE}
+devtools::install_github("hrbrmstr/tlsobs")
+```
+
+```{r message=FALSE, warning=FALSE, error=FALSE, include=FALSE}
+options(width=120)
+```
+
+### Usage
+
+```{r message=FALSE, warning=FALSE, error=FALSE}
+library(tlsobs)
+
+# current verison
+packageVersion("tlsobs")
+
+get_heartbeat()
+
+str(get_cert(1))
+
+str(get_issuer_count(1))
+
+str(get_paths(1))
+
+str(get_scan_results("12302333"))
+```
+
+```{r cache=TRUE}
+get_usage_stats()
+```
+
+### Code of Conduct
+
+Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.

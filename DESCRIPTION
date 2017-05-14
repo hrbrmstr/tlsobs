@@ -1,0 +1,29 @@
+Package: tlsobs
+Type: Package
+Title: Tools to Work with the 'Mozilla' 'TLS' Observatory 'API'
+Version: 0.1.0
+Date: 2017-05-14
+Author: Bob Rudis (bob@rud.is)
+Authors@R: c(
+      person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"))
+    )
+Maintainer: Bob Rudis <bob@rud.is>
+Description: The 'Mozilla' 'TLS' 'Observatory' <https://observatory.mozilla.org/analyze.html> 
+    can be used to compare your site against the 'Mozilla' guidelines. You can use their 
+    service or host your own. Both the central service and locally hosted services have 
+    an 'API'. Either the central service or a local service can be queried from the 
+    functions provided.
+URL: https://github.com/hrbrmstr/tlsobs
+BugReports: https://github.com/hrbrmstr/tlsobs/issues
+License: AGPL
+Suggests:
+    testthat,
+    covr
+Depends:
+    R (>= 3.2.0)
+Imports:
+    httr,
+    jsonlite,
+    tibble,
+    openssl
+RoxygenNote: 6.0.1
